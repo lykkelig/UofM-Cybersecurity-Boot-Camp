@@ -102,8 +102,8 @@ filebeat-7.6.1-amd64.deb
 
 These Beats allow us to collect the following information from each machine:
 In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
-The slowlog allows the capture of query and fetch phases ino a deciated log.
-Server log files capture raw and unfiltered traffic on the hosted website. Every time any browser or user-agent such as a Google, makes a resource request for a pages or images or javascript file or any other content from your web server, the server inserts a line into the log file.
+The slowlog allows the capture of query and fetch phases into a dedicated log.
+Server log files capture raw and unfiltered traffic on the hosted website. Every time any browser or user-agent (example: Google), makes a resource request for a pages or images or javascript file or any other content from your web server, the server inserts a line into the log file.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -124,5 +124,6 @@ Answer the following questions to fill in the blanks:_
 http://157.55.171.181:5601/app/kibana#/home
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-sudo docker cp bold_rosalind:/home/azureuser/ansible/  .
-scp -r azureuser@40.83.12.148:/home/azureuser/ .
+1) sudo docker cp bold_rosalind:/home/azureuser/ansible/  .
+
+2) scp -r azureuser@40.83.12.148:/home/azureuser/ .
