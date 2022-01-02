@@ -1,30 +1,30 @@
 ---
-- name: Configure Elk VM with Docker
+- name: Configure the Elk server with Docker
   hosts: elk
   remote_user: azureuser
   become: true
   tasks:
-    # Use apt module
+    # Get docker image
     - name: Install docker.io
       apt:
         update_cache: yes
         name: docker.io
         state: present
 
-      # Use apt module
+      # Need pip to install python
     - name: Install pip3
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
 
-      # Use pip module
+      # Install Python
     - name: Install Docker python module
       pip:
         name: docker
         state: present
 
-      # Use sysctl module
+      # Add memory per specification
     - name: Use more memory
       sysctl:
         name: vm.max_map_count
@@ -32,7 +32,7 @@
         state: present
         reload: yes
 
-      # Use docker_container module
+      # Set up ELK container
     - name: download and launch a docker elk container
       docker_container:
         name: elk
@@ -44,7 +44,7 @@
           - 9200:9200
           - 5044:5044
 
-      # Use systemd module
+      # Start Docker on system boot
     - name: Enable service docker on boot
       systemd:
         name: docker
